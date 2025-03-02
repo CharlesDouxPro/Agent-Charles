@@ -17,7 +17,7 @@ async function sendQuery() {
         });
 
         const data = await response.json();
-        responseElement.innerText = data.response || "❌ Aucune réponse trouvée.";
+        responseElement.innerText = data.response || "Aucune réponse trouvée.";
     } catch (error) {
         responseElement.innerText = "Pb de connexion serveur";
         console.error("Erreur :", error);
