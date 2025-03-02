@@ -21,8 +21,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Remplace "*" par ["http://localhost", "https://ton-domaine.com"] si besoin
     allow_credentials=True,
-    allow_methods=["*"],  # Autorise toutes les méthodes (GET, POST, OPTIONS, etc.)
-    allow_headers=["*"],  # Autorise tous les headers
+    allow_methods=["POST"],  
+    allow_headers=["*"],  
 )
 
 
