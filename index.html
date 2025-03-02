@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Mistral</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; text-align: center; }
+        textarea { width: 100%; height: 100px; margin-bottom: 10px; }
+        button { padding: 10px 20px; font-size: 16px; }
+        #response { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Chatbot Mistral</h1>
+    <textarea id="query" placeholder="Pose ta question..."></textarea>
+    <br>
+    <button onclick="sendQuery()">Envoyer</button>
+    <p id="response"></p>
+
+    <script>
+        async function sendQuery() {
+            const queryText = document.getElementById("query").value;
+            const responseElement = document.getElementById("response");
+
+            responseElement.innerText = "Chargement...";
+            
+            const response = await fetch("http://localhost:8000/query", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query_text: queryText })
+            });
+
+            const data = await response.json();
+            responseElement.innerText = data.response || "Aucune réponse trouvée.";
+        }
+    </script>
+
+</body>
+</html>
