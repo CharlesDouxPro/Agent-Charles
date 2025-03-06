@@ -10,7 +10,7 @@ async function sendQuery() {
     responseElement.innerText = "Hmmmmm";
 
     try {
-        const response = await fetch("http://localhost:8000/query", {
+        const response = await fetch("http://91.134.103.88:8000/query", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query_text: queryText })
